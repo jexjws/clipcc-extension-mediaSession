@@ -15,6 +15,9 @@ class MyExtension extends Extension {
             function: () => 'Hello, ClipCC!'
         });
     }
+    onUninit(){
+        api.removeCategory('jexjws.mediasession.category');
+    }
 }
 
 module.exports = MyExtension;
