@@ -1,0 +1,6 @@
+{
+    "jexjws.mediasession.name": "ClipCC Media Session API",
+    "jexjws.mediasession.description": "navigator.mediaSession 的clipcc块形式的封装",
+    "jexjws.mediasession.category": "你好",
+    "jexjws.mediasession.hello": "说你好"
+}

@@ -1,0 +1,20 @@
+{
+    "name": "clipcc-extension-jexjws-mediasession",
+    "version": "0.1.0",
+    "author": "jexjws",
+    "scripts": {
+        "build": "rimraf ./build && mkdirp build && rimraf ./dist && mkdirp dist && webpack --bail",
+        "build:dist": "NODE_ENV=production npm run build"
+    },
+    "dependencies": {
+        "clipcc-extension": "^0.2.0"
+    },
+    "devDependencies": {
+        "copy-webpack-plugin": "^11.0.0",
+        "mkdirp": "^3.0.1",
+        "rimraf": "^5.0.5",
+        "webpack": "^5.88.2",
+        "webpack-cli": "^5.1.4",
+        "zip-webpack-plugin": "^4.0.1"
+    }
+}
