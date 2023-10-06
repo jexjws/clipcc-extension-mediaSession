@@ -55,7 +55,8 @@ class MyExtension extends Extension {
         });
     }
     onUninit() {
-        api.removeCategory('jexjws.mediasession.category.MediaMetadata');
+        api.removeCategory('jexjws.mediasession.category.media_metadata');
+        api.removeCategory('jexjws.mediasession.category.compatibility_test');
     }
 }
 
