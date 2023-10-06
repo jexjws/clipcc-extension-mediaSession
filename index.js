@@ -2,7 +2,7 @@ const { Extension, type, api } = require('clipcc-extension');
 
 class MyExtension extends Extension {
     onInit() {
-        //用于处理用户输入的图片 URL，涉及平台安全，得重点检查
+        //用于处理用户输入的图片 URL，涉及平台安全。
         let fuckURL = () => 0;
 
         //分类 "浏览器兼容性检查 - mediaSession" ：
@@ -16,7 +16,7 @@ class MyExtension extends Extension {
             messageId: 'jexjws.mediasession.block.can_use_mediaSession',
             categoryId: 'jexjws.mediasession.category.compatibility_test',
             type: type.BlockType.BOOLEAN,
-            function: () => "mediaSession" in navigator
+            function: () => ("mediaSession" in navigator)
         })
 
         //分类 "媒体元数据" ：
