@@ -1,6 +1,10 @@
 {
-    "jexjws.mediasession.name": "ClipCC Media Session API",
-    "jexjws.mediasession.description": "navigator.mediaSession 的clipcc块形式的封装",
-    "jexjws.mediasession.category": "你好",
-    "jexjws.mediasession.hello": "说你好"
+    "jexjws.mediasession.name": "Media Session API",
+    "jexjws.mediasession.description": "播放提示窗口相关API的封装",
+    "jexjws.mediasession.category.media_metadata": "媒体元数据",
+    "jexjws.mediasession.block.set_media_metadata": "设定媒体元数据中的 [key] 为 [value]",
+    "jexjws.mediasession.block.set_media_metadata.menu.title": "标题",
+    "jexjws.mediasession.block.set_media_metadata.menu.artist": "艺术家名",
+    "jexjws.mediasession.block.set_media_metadata.menu.album": "专辑名",
+    "jexjws.mediasession.block.set_media_metadata.menu.artwork": "封面图"
 }
