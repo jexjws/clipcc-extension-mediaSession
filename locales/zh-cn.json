@@ -2,9 +2,11 @@
     "jexjws.mediasession.name": "Media Session API",
     "jexjws.mediasession.description": "播放提示窗口相关API的封装",
     "jexjws.mediasession.category.media_metadata": "媒体元数据",
+    "jexjws.mediasession.category.compatibility_test": "兼容性检查 - mediaSession",
     "jexjws.mediasession.block.set_media_metadata": "设定媒体元数据中的 [key] 为 [value]",
-    "jexjws.mediasession.block.set_media_metadata.menu.title": "标题",
-    "jexjws.mediasession.block.set_media_metadata.menu.artist": "艺术家名",
-    "jexjws.mediasession.block.set_media_metadata.menu.album": "专辑名",
-    "jexjws.mediasession.block.set_media_metadata.menu.artwork": "封面图"
+    "jexjws.mediasession.block.can_use_mediaSession":"拓展是否可用",
+    "jexjws.mediasession.menu.title": "标题",
+    "jexjws.mediasession.menu.artist": "艺术家名",
+    "jexjws.mediasession.menu.album": "专辑名",
+    "jexjws.mediasession.menu.artwork": "封面图"
 }
