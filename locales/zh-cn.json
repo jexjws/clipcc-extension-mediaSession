@@ -5,12 +5,13 @@
     "jexjws.mediasession.category.welcome": "mediaSession",
     "jexjws.mediasession.block.set_media_metadata": "设定媒体元数据中的 [key] 为 [value]",
     "jexjws.mediasession.block.reset_media_metadata": "初始化：媒体元数据",
-    "jexjws.mediasession.block.do_what_when_hit_error": "当执行出错时：[what_to_do]",
+    "jexjws.mediasession.block.do_what_when_hit_error": "当执行出错时：[what_plan]+ 记录报错信息到 \"mediaSession 报错信息\" 积木中 + console报错",
     "jexjws.mediasession.block.can_use_mediaSession":"mediaSession 是否可用",
+    "jexjws.mediasession.block.error_information":"mediaSession 报错信息",
     "jexjws.mediasession.menu.title": "title (标题)",
     "jexjws.mediasession.menu.artist": "artist (艺术家名)",
     "jexjws.mediasession.menu.album": "album (专辑名)",
     "jexjws.mediasession.menu.artwork": "artwork (封面图)",
-    "jexjws.mediasession.menu.do_what_when_hit_error.planA": "直接通过积木块返回报错信息（易于调试）+ 记录报错信息到 \"mediaSession 报错信息\" 积木中 + console报错",
-    "jexjws.mediasession.menu.do_what_when_hit_error.planB": "积木块仅返回空白信息 + 记录报错信息到 \"mediaSession 报错信息\" 积木中 + console报错"
+    "jexjws.mediasession.menu.do_what_when_hit_error.planA": "积木块返回报错信息 ",
+    "jexjws.mediasession.menu.do_what_when_hit_error.planB": "积木块返回空白信息 "
 }

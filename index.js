@@ -1,7 +1,7 @@
 const { Extension, type, api } = require('clipcc-extension');
 
 class MyExtension extends Extension {
-    whatPlanIsUsedWhenHitError = "b";
+    whatPlanIsUsedWhenHitError = "a";
     capturedError = undefined;
     logError(e) {
         //错误处理相关实现借鉴自：github.com/bddjr/clipcc-extension-nhjrToolBox/blob/1fb1859cd3ac44cf9ceade46b40adde2a24153cb/index.js#L10
@@ -10,7 +10,7 @@ class MyExtension extends Extension {
         if (this.whatPlanIsUsedWhenHitError === 'a') {
             return String(e);
         }
-        return 0;
+        return '';
     }
     //用于处理用户输入的图片 URL。
     imageURLcleaner() {
@@ -39,6 +39,15 @@ class MyExtension extends Extension {
                 }
             }
         })
+        //变量 "mediaSession 报错信息" ：
+        api.addBlock({
+            opcode: 'jexjws.mediasession.v1.error_information',
+            type: type.BlockType.REPORTER,
+            messageId: 'jexjws.mediasession.block.error_information',
+            categoryId: 'jexjws.mediasession.category.welcome',
+            function: () => (this.capturedError)
+        });
+
         /*积木 "当执行出错时：" ：
         直接通过积木块返回报错信息（易于调试）+ 记录报错信息到 "mediaSession 报错信息" 积木中 + console报错
         默认：积木块仅返回空白信息 + 记录报错信息到 "mediaSession 报错信息" 积木中 + console报错
@@ -48,9 +57,9 @@ class MyExtension extends Extension {
             messageId: 'jexjws.mediasession.block.do_what_when_hit_error',
             categoryId: 'jexjws.mediasession.category.welcome',
             type: type.BlockType.COMMAND,
-            field: true,
             param: {
                 what_plan: {
+                    field: true,
                     type: type.ParameterType.STRING,
                     menu: [{
                         messageId: 'jexjws.mediasession.menu.do_what_when_hit_error.planA',
@@ -59,13 +68,13 @@ class MyExtension extends Extension {
                         messageId: 'jexjws.mediasession.menu.do_what_when_hit_error.planB',
                         value: 'b'
                     }],
-                    default: 'b'
+                    default: 'a'
                 }
             },
-            function: () => {
+            function: (args) => {
                 try {
-                    throw "test";
-                    whatPlanIsUsedWhenHitError = args.what_plan;
+                    
+                    this.whatPlanIsUsedWhenHitError = args.what_plan;
                 }
                 catch (e) { return this.logError(e); }
             }
@@ -82,7 +91,7 @@ class MyExtension extends Extension {
         });
         //积木 “初始化：媒体元数据”
         api.addBlock({
-            opcode: 'jexjws.mediasession.v1.set_media_metadata',
+            opcode: 'jexjws.mediasession.v1.reset_media_metadata',
             type: type.BlockType.COMMAND,
             messageId: 'jexjws.mediasession.block.reset_media_metadata',
             categoryId: 'jexjws.mediasession.category.media_metadata',
@@ -121,7 +130,17 @@ class MyExtension extends Extension {
                     default: '  '
                 }
             },
-            function: (args) => 'Hello, ClipCC!' + String(JSON.stringify(args) + this.whatPlanIsUsedWhenHitError)
+            function: (args) => {
+                console.log('Hello, ClipCC!' + String(JSON.stringify(args) + this.whatPlanIsUsedWhenHitError));
+
+                try {
+                    navigator.mediaSession.metadata[args.key] = args.value;
+                } catch (e) {
+                    return this.logError(e);
+                }
+
+
+            }
         });
     }
     onUninit() {
